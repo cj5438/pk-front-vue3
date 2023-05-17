@@ -17,7 +17,7 @@
     @apply font-500;
     &:after {
       // content: '';
-      @apply content-none absolute bg-gray-100 w-8 h-1 bottom-0 left-[calc(50%-1rem)];
+      @apply content-none absolute bg-gray-100 w-8 h-[1px] bottom-0 left-[calc(50%-1rem)];
       // left: calc(50% - 1rem);
     }
   }
