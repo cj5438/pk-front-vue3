@@ -9,8 +9,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Card: typeof import('./src/components/Card.vue')['default']
+    Footer: typeof import('./src/components/Footer.vue')['default']
+    Menu: typeof import('./src/components/Menu.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Swiper: typeof import('./src/components/Swiper.vue')['default']
   }
 }

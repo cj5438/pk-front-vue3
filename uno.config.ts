@@ -1,9 +1,13 @@
 // uno.config.ts
 import { defineConfig } from 'unocss'
 // import presetWind from '@unocss/preset-wind'
-import { presetWind, presetIcons } from 'unocss'
+import { presetWind, presetIcons, transformerDirectives } from 'unocss'
 
 export default defineConfig({
+  shortcuts: {
+    // method 2：针对于全局经常需要使用样式
+    // 'router-link': 'text-white text-xl px-8 py-2 cursor font-300 hover:font-500'
+  },
   presets: [
     presetWind(),
     presetIcons({
@@ -12,5 +16,6 @@ export default defineConfig({
         display: 'inline-block'
       }
     })
-  ]
+  ],
+  transformers: [transformerDirectives()]
 })
