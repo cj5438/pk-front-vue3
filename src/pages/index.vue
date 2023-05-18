@@ -1,6 +1,10 @@
 <template>
   <div>
     <Swiper :items="items" height="36rem"></Swiper>
+<<<<<<< HEAD
+    <Card :image="bg" image-type="rounded" title="title" sub-title="subtitle" border></Card>
+=======
+>>>>>>> 2abe6b1 (feat: Swiper组件)
   </div>
 </template>
 

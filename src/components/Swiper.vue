@@ -4,8 +4,8 @@
     :space-between="0"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
-    :class="cls"
-    :style="style"
+    :class="getClassAndStyle(props.height).class"
+    :style="getClassAndStyle(props.height).style"
     :modules="modules"
     :navigation="{ prevEl: '.prev', nextEl: '.next' }"
     :pagination="{ type: 'fraction', el: '.pagination' }"
@@ -69,8 +69,6 @@ function getClassAndStyle(str: string) {
     class: /h-/.test(props.height) ? str : ''
   }
 }
-
-const { style, class: cls } = toRefs(getClassAndStyle(props.height))
 
 const onSwiper = (swiper: SwiperType) => {
   console.log(swiper)

@@ -7,6 +7,7 @@ export default defineConfig({
   shortcuts: {
     // method 2：针对于全局经常需要使用样式
     // 'router-link': 'text-white text-xl px-8 py-2 cursor font-300 hover:font-500'
+    'bg-image': 'w-full h-full bg-cover bg-no-repeat bg-center-top'
   },
   presets: [
     presetWind(),
