@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Swiper :items="items" :height="36 * store.rate + 'rem'"></Swiper>
-    <Card :image="bg" image-type="rounded" title="title" sub-title="subtitle" border></Card>
+    <div class="test">hello world</div>
+    <!-- <Swiper :items="items" :height="36 * store.rate + 'rem'"></Swiper>
+    <Card :image="bg" image-type="rounded" title="title" sub-title="subtitle" border></Card> -->
   </div>
 </template>
 
@@ -42,7 +43,12 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.test {
+  width: 240px;
+  height: 100px;
+}
+</style>
 
 <route lang="yaml">
 meta:
