@@ -5,14 +5,14 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-    <!-- <script>
-      if (/iPhone|Android|Windows Phone/i.test(navigator.userAgent)) {
-        window.location.href = 'https://m.imooc.com'
-      }
-    </script> -->
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      if (/iPhone|Android|Windows Phone/i.test(navigator.userAgent)) {
+        document.body.classList.add('mobile-device')
+      }
+    </script>
     <script type="module" src="/src/main.ts"></script>
     <!-- <script>
       function setFontSize() {

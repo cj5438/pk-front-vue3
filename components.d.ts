@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Container: typeof import('./src/components/Container.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
+    MobileNavbar: typeof import('./src/components/MobileNavbar.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
