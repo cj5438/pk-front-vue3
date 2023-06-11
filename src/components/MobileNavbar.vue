@@ -49,5 +49,12 @@ defineProps({
       // left: calc(50% - 1rem);
     }
   }
+
+  &.router-link-active {
+    span,
+    i {
+      @apply font-500 text-main;
+    }
+  }
 }
 </style>
