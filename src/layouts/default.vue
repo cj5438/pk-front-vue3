@@ -1,28 +1,33 @@
 <template>
   <div
     class="fixed top-0 w-full z-50 transition-all duration-300 h-0"
-    :class="[{ 'bg-black bg-opacity-30 shadow-lg': y > 0 }, { 'lt-sm:(bg-black h-full)': show }]"
+    :class="[{ 'lt-sm:(bg-black h-full)': show }]"
   >
-    <Container>
-      <img src="/512x512.png" class="w-14 h-full lt-sm:mx-auto" alt="toimc logo" />
-      <div
-        :class="[
-          'display-none  text-gray-300 text-2xl absolute right-5 top-3 cursor-pointer hover:text-white lt-sm:display-block'
-        ]"
-        @click="() => toggle()"
-      >
-        <Transition name="rotate-icon" mode="out-in">
-          <div class="i-ic-round-menu" v-if="!show"></div>
-          <div class="i-radix-icons:cross-2" v-else></div>
-        </Transition>
-      </div>
-      <Menu v-show="show" class="lt-sm:(absolute top-14 right-0 w-full flex-col)"></Menu>
-    </Container>
+    <!-- 这里修复滚动时h-0的bug -->
+    <div :class="[{ 'bg-black bg-opacity-30 shadow-lg': y > 0 }]">
+      <Container>
+        <img src="/512x512.png" class="w-14 h-full lt-sm:mx-auto" alt="toimc logo" />
+        <div
+          :class="[
+            'display-none  text-gray-300 text-2xl absolute right-5 top-3 cursor-pointer hover:text-white lt-sm:display-block'
+          ]"
+          @click="() => toggle()"
+        >
+          <Transition name="rotate-icon" mode="out-in">
+            <div class="i-ic-round-menu" v-if="!show"></div>
+            <div class="i-radix-icons:cross-2" v-else></div>
+          </Transition>
+        </div>
+        <Menu v-show="show" class="lt-sm:(absolute top-14 right-0 w-full flex-col)"></Menu>
+      </Container>
+    </div>
   </div>
   <router-view></router-view>
   <div class="h-[4000px]"></div>
   <div>
-    <div class="mobile-hide">default footer</div>
+    <div class="mobile-hide">
+      <DefaultFooter></DefaultFooter>
+    </div>
     <div class="display-none mobile">
       <MobileNavbar></MobileNavbar>
     </div>
