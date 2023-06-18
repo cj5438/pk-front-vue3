@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-coolgray-700 text-coolgray-400 text-sm py-4">
+  <div class="bg-coolgray-700 text-coolgray-400 text-lg py-4">
     <Container class="flex-col">
       <!-- 菜单 -->
       <div class="w-full flex justify-between items-center">
@@ -10,7 +10,7 @@
           <li><router-link class="item" to="/study">学习</router-link></li>
           <li><router-link class="item" to="/about">关于</router-link></li>
         </ul>
-        <div class="flex items-center pr-10 text-lg">
+        <div class="flex items-center pr-10 text-3xl z-1">
           <div class="group relative">
             <div class="i-ic:baseline-wechat cursor-pointer"></div>
             <img
