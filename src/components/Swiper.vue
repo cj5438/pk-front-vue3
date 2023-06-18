@@ -9,6 +9,7 @@
     :modules="modules"
     :navigation="{ prevEl: '.prev', nextEl: '.next' }"
     :pagination="{ type: 'fraction', el: '.pagination' }"
+    v-bind="$attrs"
   >
     <swiper-slide v-for="item in items" :key="item.image">
       <slot :item="item">
@@ -26,13 +27,16 @@
         </div>
       </slot>
     </swiper-slide>
+    <!-- <slot name="pagination"> -->
     <div
       class="flex justify-center items-center absolute right-0 bottom-0 bg-white opacity-60 text-dark-300 w-40 h-12 z-30"
+      v-if="!$attrs.pagination_hide"
     >
       <div class="pagination w-unset! font-bold mr-4"></div>
       <div class="prev i-mdi-arrow-left-thin" style="font-size: 2rem"></div>
       <div class="next i-mdi-arrow-right-thin" style="font-size: 2rem"></div>
     </div>
+    <!-- </slot> -->
   </swiper>
 </template>
 
@@ -61,6 +65,8 @@ const props = defineProps({
 
 const modules = [Navigation, Pagination]
 
+const emits = defineEmits(['change'])
+
 function getClassAndStyle(str: string) {
   // props.height
   // 如果height的值包含rem,em,px，则返回 {string: str, class: ''}
@@ -74,8 +80,8 @@ function getClassAndStyle(str: string) {
 const onSwiper = (swiper: SwiperType) => {
   console.log(swiper)
 }
-const onSlideChange = () => {
-  console.log('slide change')
+const onSlideChange = (e) => {
+  emits('change', e)
 }
 </script>
 
