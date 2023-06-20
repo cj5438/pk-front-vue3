@@ -13,6 +13,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Layouts from 'vite-plugin-vue-layouts'
 import UnoCSS from 'unocss/vite'
+import Markdown from 'vite-plugin-vue-markdown'
 
 import { VitePWA } from 'vite-plugin-pwa'
 
@@ -21,8 +22,12 @@ import { viteMockServe } from 'vite-plugin-mock'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    VueRouter(),
-    vue(),
+    VueRouter({
+      extensions: ['.vue', '.md']
+    }),
+    vue({
+      include: [/\.vue$/, /\.md$/]
+    }),
     vueJsx(),
     // Vue3.3以后，不需要这些新的特性了
     // VueMacros.vite({
@@ -31,6 +36,7 @@ export default defineConfig({
     //     vueJsx: vueJsx() // 如果需要
     //   }
     // }),
+    Markdown(),
     UnoCSS(),
     AutoImport({
       include: [
@@ -52,7 +58,8 @@ export default defineConfig({
     }),
     Components({
       directoryAsNamespace: true,
-      collapseSamePrefixes: true
+      collapseSamePrefixes: true,
+      include: [/\.vue$/, /\.md$/]
     }),
     Layouts({
       layoutsDirs: 'src/layouts',
