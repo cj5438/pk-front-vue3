@@ -25,7 +25,7 @@
     'https://static.www.toimc.com/blog/picgo/2023/06/19/swiper2-d98e98.webp',
     'https://static.www.toimc.com/blog/picgo/2023/06/19/swiper3-fc8015.webp',
     'https://static.www.toimc.com/blog/picgo/2023/06/19/swiper4-19130b.webp',
-  ]" :titles="['通识强化','进阶提升','高阶跃迁','拓展&深耕']" :height="700" class="w-full px-4">
+  ]" :titles="['通识强化','进阶提升','高阶跃迁','拓展&深耕']" :height="420" class="w-full px-4">
 
 </ImageSwiper>
 

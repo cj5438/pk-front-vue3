@@ -108,6 +108,7 @@ const onSwiper = (swiper: SwiperType) => {
 }
 const onSlideChange = (e) => {
   emits('change', e)
+  activeIndex.value = (e as SwiperType).activeIndex
 }
 </script>
 
