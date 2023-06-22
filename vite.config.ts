@@ -26,7 +26,12 @@ export default defineConfig({
       extensions: ['.vue', '.md']
     }),
     vue({
-      include: [/\.vue$/, /\.md$/]
+      include: [/\.vue$/, /\.md$/],
+      script: {
+        // vue3.3之后实验特性
+        defineModel: true,
+        propsDestructure: true
+      }
     }),
     vueJsx(),
     // Vue3.3以后，不需要这些新的特性了
