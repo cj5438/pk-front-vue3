@@ -27,8 +27,8 @@
     </div>
     <Container>
       <!-- 课程详情 -->
-      <div class="w-full flex">
-        <div class="w-3/4 bg-white mr-4">
+      <div class="w-full flex mb-4">
+        <div class="w-[calc(75%-1rem)] bg-white mr-4">
           <!-- tabs -->
           <div class="border-b-1 border-b-color-gray-200">
             <!-- <ul class="tabs flex w-full">
@@ -36,7 +36,7 @@
               <li class="px-4 py-2 cursor-pointer">章节目录</li>
               <li class="px-4 py-2 cursor-pointer">学员评价</li>
             </ul> -->
-            <Tabs :items="['课程介绍', '章节目录', '学员评价']"></Tabs>
+            <Tabs :items="['课程介绍', '章节目录', '学员评价']" v-model="activeIndex"></Tabs>
             <!-- tabs标题 -->
           </div>
           <!-- tabs content -->
@@ -49,15 +49,32 @@
         </div>
         <!-- 右边是侧边栏 -->
         <div class="w-1/4">
+          <div class="bg-white mb-2 h-120">边栏</div>
+          <div class="bg-white mb-2 last:mb-0 h-120">边栏2</div>
+        </div>
+      </div>
+      <!-- Grid布局 -->
+      <!-- <div class="w-full grid grid-cols-4 gap-3 mb-4">
+        <div class="col-start-1 col-span-3 bg-white">
+          <div class="border-b-1 border-b-color-gray-200">
+          </div>
+          <div class="p-4">
+            <router-view></router-view>
+          </div>
+        </div>
+        <div class="col-start-4 col-span-1">
           <div class="bg-white mb-2 h-20">边栏</div>
           <div class="bg-white mb-2 h-20">边栏2</div>
         </div>
-      </div>
+      </div> -->
     </Container>
   </div>
 </template>
 
 <script setup lang="ts">
+const activeIndex = ref(2)
+
+provide('activeIndex', activeIndex)
 // import { useParams } from '@/hooks'
 
 // type Params = {
