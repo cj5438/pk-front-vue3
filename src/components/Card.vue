@@ -1,12 +1,10 @@
 <template>
   <div :class="cardClass">
-    <div>
-      <div :class="imageClass" :style="{ backgroundImage: `url(${image})` }" v-if="image"></div>
-      <div v-else :class="[icon, 'w-20 h-20']"></div>
-      <div v-if="title || subTitle" :class="titleCls">
-        <p :class="['text-lg text-dark-300 text-bold mb-2', `line-clamp-${clamp}`]">{{ title }}</p>
-        <p class="text-sm text-dark-100 font-300 line-clamp-2">{{ subTitle }}</p>
-      </div>
+    <div :class="imageClass" :style="{ backgroundImage: `url(${image})` }" v-if="image"></div>
+    <div v-else :class="[icon, 'w-20 h-20']"></div>
+    <div v-if="title || subTitle" :class="titleCls">
+      <p :class="['text-lg text-dark-300 text-bold mb-2', `line-clamp-${clamp}`]">{{ title }}</p>
+      <p class="text-sm text-dark-100 font-300 line-clamp-2">{{ subTitle }}</p>
     </div>
     <slot :item="{ image, icon, title, subTitle, url, ...$attrs }"></slot>
   </div>

@@ -19,11 +19,13 @@ declare module '@vue/runtime-core' {
     ImageSwiper: typeof import('./src/components/ImageSwiper.vue')['default']
     Menu: typeof import('./src/components/Menu.vue')['default']
     MobileNavbar: typeof import('./src/components/MobileNavbar.vue')['default']
+    Modal: typeof import('./src/components/Modal.vue')['default']
     Partners: typeof import('./src/components/Partners.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Swiper: typeof import('./src/components/Swiper.vue')['default']
     Tabs: typeof import('./src/components/Tabs.vue')['default']
+    Toast: typeof import('./src/components/Toast.vue')['default']
   }
 }

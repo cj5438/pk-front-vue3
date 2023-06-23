@@ -57,6 +57,7 @@
       <!-- <div class="w-full grid grid-cols-4 gap-3 mb-4">
         <div class="col-start-1 col-span-3 bg-white">
           <div class="border-b-1 border-b-color-gray-200">
+            <Tabs :items="['课程介绍', '章节目录', '学员评价']" v-model="activeIndex"></Tabs>
           </div>
           <div class="p-4">
             <router-view></router-view>
@@ -72,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-const activeIndex = ref(2)
+const activeIndex = ref(0)
 
 provide('activeIndex', activeIndex)
 // import { useParams } from '@/hooks'
