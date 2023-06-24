@@ -4,29 +4,6 @@ import path from 'path'
 // test.ts
 export default [
   {
-    url: '/api/get',
-    method: 'get',
-    response: () => {
-      return {
-        code: 0,
-        data: {
-          name: 'vben'
-        }
-      }
-    }
-  },
-  {
-    url: '/api/post',
-    method: 'post',
-    timeout: 2000,
-    response: {
-      code: 0,
-      data: {
-        name: 'vben'
-      }
-    }
-  },
-  {
     url: '/api/image/:image',
     method: 'get',
     rawResponse: async (_req: any, res: any) => {

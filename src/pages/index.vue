@@ -1,6 +1,6 @@
 <template>
   <div class="pb-15">
-    <Swiper :items="items" :height="36 * store.rate + 'rem'"></Swiper>
+    <Swiper :items="homeStore.swipers" :height="36 * store.rate + 'rem'"></Swiper>
     <Container>
       <!-- 标题 -->
       <div class="py-4">
@@ -21,8 +21,8 @@
       <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-full lt-sm:px-4">
         <!-- for遍历的内容：课程 -->
         <a
+          v-for="(item, index) in homeStore.projects"
           :href="item.url"
-          v-for="(item, index) in projects"
           target="_blank"
           :key="index"
           class="flex group transition-all hover:(bg-sky-500 shadow-lg text-white transform-translate-y--1)"
@@ -60,7 +60,7 @@
         <a
           :href="item.url"
           target="_blank"
-          v-for="(item, index) in lessons"
+          v-for="(item, index) in homeStore.courses"
           :key="index"
           class="flex"
         >
@@ -92,7 +92,7 @@
     </Container>
     <Container class="w-full text-gray-400">
       <Swiper
-        :items="items"
+        :items="homeStore.swiperProjects"
         :height="(width > 640 ? 28 : 40) * store.rate + 'rem'"
         class="w-full sm:w-2/3"
         @change="handleSwiperChange"
@@ -100,7 +100,7 @@
       <div
         class="lt-sm:display-none sm:(w-1/3) bg-coolgray-700 self-stretch flex flex-col justify-center px-4"
       >
-        <a :href="selectItem.url" target="_blank">
+        <a v-if="selectItem" :href="selectItem.url" target="_blank">
           <div class="text-2xl font-bold pb-4 text-gray-100">{{ selectItem.title }}</div>
           <div class="text-sm">{{ selectItem.subTitle }}</div>
           <div class="flex items-center justify-between mb-4">查看更多</div>
@@ -166,144 +166,16 @@
 <script setup lang="ts">
 import type { SwiperItemType } from '@/components/types'
 import { registerSW } from 'virtual:pwa-register'
-import bg from '@/assets/images/bg.png'
 import { useThemeStore } from '../store/useThemeStore'
+import { useHomeStore } from '../store/useHomeStore'
 
-import front from '@/assets/lessons/front-end.jpeg'
-import nestjs from '@/assets/lessons/nestjs.jpeg'
-import small from '@/assets/lessons/6.jpeg'
-import project from '@/assets/lessons/project.jpeg'
-import book from '@/assets/lessons/book.jpeg'
-import blog from '@/assets/lessons/blog.png'
 import type Swiper from 'swiper'
-import { getHomeData } from '@/api/home'
-onBeforeMount(async () => {
-  const res = await getHomeData()
-  console.log('响应回来的数据', res)
-})
 
 const store = useThemeStore()
+const homeStore = useHomeStore()
 
 const { width } = useWindowSize()
-
-const items: SwiperItemType[] = [
-  {
-    image: bg,
-    title: '传播技术的种子',
-    subTitle: '让技术没有门槛，让沟通没有障碍',
-    url: 'https://www.imooc.com'
-  },
-  {
-    image: bg,
-    title: '传播技术的种子1',
-    subTitle: '让技术没有门槛，让沟通没有障碍1',
-    url: 'https://www.imooc.com'
-  },
-  {
-    image: bg,
-    title: '传播技术的种子2',
-    subTitle: '让技术没有门槛，让沟通没有障碍2',
-    url: 'https://www.imooc.com'
-  },
-  {
-    image: bg,
-    title: '传播技术的种子3',
-    subTitle: '让技术没有门槛，让沟通没有障碍3',
-    url: 'https://www.imooc.com'
-  }
-]
-
-const selectItem = ref(items[0])
-
-const projects = [
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  },
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    icon: 'i-mdi:web'
-  }
-]
-
-const lessons = [
-  {
-    title: '前端高级工程师（大前端）',
-    subTitle: '“技术成长&职业破局”双高体系,深度打通“全栈 + 全流程 +多端+ 提效+AI赋能”',
-    url: 'https://class.imooc.com/sale/fesenior',
-    image: front
-  },
-  {
-    title: '互联网人副业指南',
-    subTitle: '专为互联网人打造，超越市面大多副业课，从0到1掌握副业成功密码',
-    url: 'https://coding.imooc.com/class/598.html',
-    image: project
-  },
-  {
-    title: 'NestJS 入门到实战',
-    subTitle: '近几年快速发展的Node.js框架，掌握未来前端工程师后端开发能力',
-    url: 'https://coding.imooc.com/class/617.html',
-    image: nestjs
-  },
-  {
-    title: '六大场景 梳理开发痛点',
-    subTitle: '摸清大前端成长之路 梳理开发痛点 解锁前端进阶路',
-    url: 'https://coding.imooc.com/class/514.html',
-    image: small
-  },
-  {
-    title: 'toimc 电子书平台',
-    subTitle: '大前端高级进阶，电子书平台，服务于课程内容',
-    url: 'https://coding.imooc.com/class/617.html',
-    image: book
-  },
-  {
-    title: 'toimc 博客',
-    subTitle: '热爱技术的发烧友，前端技术狂热者',
-    url: 'https://www.toimc.com',
-    image: blog
-  }
-]
+const selectItem = ref()
 
 const partners = ref([
   'https://wayearn.static.toimc.com/partner/logo1.png',
@@ -313,20 +185,12 @@ const partners = ref([
   'https://wayearn.static.toimc.com/partner/logo6.png',
   'https://wayearn.static.toimc.com/partner/logo7.png'
 ])
-// const partners = ref(
-//   [
-//     'https://wayearn.static.toimc.com/partner/logo1.png',
-//     'https://wayearn.static.toimc.com/partner/logo2.png',
-//     'https://wayearn.static.toimc.com/partner/logo8.png',
-//     'https://wayearn.static.toimc.com/partner/logo5.png',
-//     'https://wayearn.static.toimc.com/partner/logo6.png',
-//     'https://wayearn.static.toimc.com/partner/logo7.png'
-//   ].map((item) => {
-//     return {
-//       image: item
-//     }
-//   })
-// )
+
+onBeforeMount(async () => {
+  await homeStore.fetchData()
+  selectItem.value = homeStore.swipers[0]
+  console.log('🚀 ~ file: index.vue:192 ~ onBeforeMount ~ homeStore.swipers:', homeStore.swipers)
+})
 
 onMounted(() => {
   registerSW({
@@ -341,7 +205,7 @@ onMounted(() => {
 
 function handleSwiperChange(e: Swiper) {
   const index = e.activeIndex
-  selectItem.value = items[index]
+  selectItem.value = homeStore.swipers[index]
 }
 </script>
 

@@ -1,6 +1,6 @@
 import type { MockMethod } from 'vite-plugin-mock'
-import data from './data.json'
-import picData from './picData.json'
+import data from './json/data.json'
+import picData from './json/picData.json'
 
 const prefix = '/api/v1'
 
@@ -23,6 +23,10 @@ export default [
   {
     url: `${prefix}/home`,
     method: 'get',
+    // rawResponse: (req, res) => {
+    //   res.statusCode = 500
+    //   res.end()
+    // }
     response: () => {
       return {
         code: 200,
@@ -99,6 +103,18 @@ export default [
           ],
           courses: getImage(6),
           'swiper-projects': [
+            {
+              image: bg,
+              title: '传播技术的种子',
+              subTitle: '让技术没有门槛，让沟通没有障碍',
+              url: 'https://www.imooc.com'
+            },
+            {
+              image: bg,
+              title: '传播技术的种子',
+              subTitle: '让技术没有门槛，让沟通没有障碍',
+              url: 'https://www.imooc.com'
+            },
             {
               image: bg,
               title: '传播技术的种子',
