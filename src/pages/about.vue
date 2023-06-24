@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-100 flex-1">
+  <div class="bg-gray-100 flex-1 pb-15">
     <div
-      class="bg-cover bg-center w-full h-[560px]"
+      class="bg bg-cover bg-center w-full h-[560px]"
       :style="{ backgroundImage: `url(${bg})` }"
     ></div>
     <Container class="mt--80px value">
@@ -126,6 +126,14 @@ const partners: PartnerType[] = [
 
 <style scoped lang="scss">
 $dot: 8px;
+
+@media (max-width: 1200px) {
+  .bg {
+    height: calc((100vw - 20px) / 1200 * 560);
+    min-height: 200px !important;
+  }
+}
+
 .value {
   @media screen and (max-width: 1200px) {
     margin-top: calc((100vw - 480px) / (1200 - 480) * -80);

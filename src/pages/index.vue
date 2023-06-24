@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-15">
     <Swiper :items="items" :height="36 * store.rate + 'rem'"></Swiper>
     <Container>
       <!-- 标题 -->
@@ -93,11 +93,13 @@
     <Container class="w-full text-gray-400">
       <Swiper
         :items="items"
-        :height="28 * store.rate + 'rem'"
-        class="w-2/3"
+        :height="(width > 640 ? 28 : 40) * store.rate + 'rem'"
+        class="w-full sm:w-2/3"
         @change="handleSwiperChange"
       ></Swiper>
-      <div class="w-1/3 bg-coolgray-700 self-stretch flex flex-col justify-center px-4">
+      <div
+        class="lt-sm:display-none sm:(w-1/3) bg-coolgray-700 self-stretch flex flex-col justify-center px-4"
+      >
         <a :href="selectItem.url" target="_blank">
           <div class="text-2xl font-bold pb-4 text-gray-100">{{ selectItem.title }}</div>
           <div class="text-sm">{{ selectItem.subTitle }}</div>
@@ -139,7 +141,7 @@
       </Swiper> -->
     </Container>
     <Container class="py-4">
-      <div class="w-2/3 h-[400px]">
+      <div class="w-2/3 h-[300px] sm:h-[400px]">
         <div class="grid grid-cols-4 grid-rows-3 h-full gap-4 p-4">
           <div class="border col-start-1 col-span-4 row-start-1 row-span-1">1</div>
           <div class="border col-start-1 col-span-2 row-start-2 row-span-2">2</div>
@@ -176,6 +178,8 @@ import blog from '@/assets/lessons/blog.png'
 import type Swiper from 'swiper'
 
 const store = useThemeStore()
+
+const { width } = useWindowSize()
 
 const items: SwiperItemType[] = [
   {

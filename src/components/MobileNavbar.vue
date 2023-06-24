@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-0 w-full h-14 flex justify-around z-30 shadow-2xl border-t">
+  <div class="fixed bottom-0 w-full h-14 flex justify-around z-30 shadow-2xl border-t bg-white">
     <router-link class="item" to="/">
       <i class="i-carbon:home"></i>
       <span>首页</span>

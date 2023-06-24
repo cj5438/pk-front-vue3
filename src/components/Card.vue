@@ -3,8 +3,18 @@
     <div :class="imageClass" :style="{ backgroundImage: `url(${image})` }" v-if="image"></div>
     <div v-else :class="[icon, 'w-20 h-20']"></div>
     <div v-if="title || subTitle" :class="titleCls">
-      <p :class="['text-lg text-dark-300 text-bold mb-2', `line-clamp-${clamp}`]">{{ title }}</p>
-      <p class="text-sm text-dark-100 font-300 line-clamp-2">{{ subTitle }}</p>
+      <p
+        :class="[
+          'text-sm text-dark-300 text-bold mb-2',
+          `line-clamp-${clamp}`,
+          'lg:text-base xl:text-lg'
+        ]"
+      >
+        {{ title }}
+      </p>
+      <p class="text-xs text-dark-100 font-300 line-clamp-2 ;g:text-sm xl:text-lg">
+        {{ subTitle }}
+      </p>
     </div>
     <slot :item="{ image, icon, title, subTitle, url, ...$attrs }"></slot>
   </div>
@@ -68,7 +78,7 @@ const imageClass = computed(() => {
 })
 
 const titleCls = computed(() => {
-  const defaultClass = `flex flex-col items-start p-4 ${props.titleClass} `
+  const defaultClass = `flex flex-col items-start px-2 py-1 lg:p-4 ${props.titleClass} `
   if (props.imageType === 'avatar') {
     return defaultClass + ' pt-15'
   }

@@ -5,7 +5,9 @@
       <!-- Swiper -->
       <Swiper :items="items" :height="36 * store.rate + 'rem'" :pagination_hide="true"></Swiper>
       <!-- Swiper里面登录 -->
-      <div class="absolute bottom-0 left-0 w-full flex py-2 bg-gray-900 bg-opacity-40 z-20">
+      <div
+        class="absolute bottom-0 left-0 w-full flex py-2 bg-gray-900 bg-opacity-40 z-20 lt-sm:display-none"
+      >
         <Container>
           <div class="flex justify-between w-full">
             <!-- 分类 -->
