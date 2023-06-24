@@ -176,6 +176,11 @@ import project from '@/assets/lessons/project.jpeg'
 import book from '@/assets/lessons/book.jpeg'
 import blog from '@/assets/lessons/blog.png'
 import type Swiper from 'swiper'
+import { getHomeData } from '@/api/home'
+onBeforeMount(async () => {
+  const res = await getHomeData()
+  console.log('响应回来的数据', res)
+})
 
 const store = useThemeStore()
 

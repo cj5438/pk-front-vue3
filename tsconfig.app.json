@@ -7,7 +7,8 @@
     "typed-router.d.ts",
     "auto-imports.d.ts",
     "components.d.ts",
-    "mock/**/*.ts"
+    "mock/**/*.ts",
+    "mock/**/*.json"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
@@ -17,6 +18,7 @@
       "@/*": ["./src/*"]
     },
     "moduleResolution": "node",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "resolveJsonModule": true
   }
 }
