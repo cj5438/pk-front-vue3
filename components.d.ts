@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Card: typeof import('./src/components/Card.vue')['default']
     Chapters: typeof import('./src/components/Chapters.vue')['default']
-    Characters: typeof import('./src/components/Characters.vue')['default']
     Comments: typeof import('./src/components/Comments.vue')['default']
     Container: typeof import('./src/components/Container.vue')['default']
     DefaultFooter: typeof import('./src/components/DefaultFooter.vue')['default']
@@ -28,6 +27,5 @@ declare module '@vue/runtime-core' {
     Swiper: typeof import('./src/components/Swiper.vue')['default']
     Tabs: typeof import('./src/components/Tabs.vue')['default']
     Toast: typeof import('./src/components/Toast.vue')['default']
-    VipDesc: typeof import('./src/components/VipDesc.vue')['default']
   }
 }

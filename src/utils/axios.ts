@@ -1,4 +1,3 @@
-import type { ResponseData } from '@/types'
 import axios, { type InternalAxiosRequestConfig } from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
 

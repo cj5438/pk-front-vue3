@@ -30,5 +30,7 @@ export default defineConfig({
     colors: {
       main: '#4E98F4'
     }
-  }
+  },
+  // 是从接口加载出来的->动态的class :class
+  safelist: ['i-mdi:web']
 })
