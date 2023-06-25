@@ -27,5 +27,10 @@ coverage
 *.sln
 *.sw?
 
+# mock assets
 mock/downloads/**
 mock/assets/**
+
+# vitest reporters
+html/
+coverage/
