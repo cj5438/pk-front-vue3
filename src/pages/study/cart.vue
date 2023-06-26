@@ -52,9 +52,9 @@
           <!-- checkbox -->
           <div class="px-2 text-xl">
             <!-- 选中 -->
-            <i class="i-radix-icons:checkbox" v-if="true"></i>
+            <i class="i-radix-icons:checkbox" v-if="flag" @click="() => toggle(false)"></i>
             <!-- 未选中 -->
-            <i class="i-carbon:checkbox" v-else></i>
+            <i class="i-carbon:checkbox" v-else @click="() => toggle(true)"></i>
           </div>
           <span class="text-gray-400">全选</span>
         </div>
@@ -104,6 +104,8 @@ withDefaults(defineProps<CartType>(), {
     }
   ]
 })
+
+const [flag, toggle] = useToggle(false)
 </script>
 
 <style scoped></style>
