@@ -50,7 +50,7 @@ export default defineConfig({
         /\.vue\?vue/, // .vue
         /\.md$/ // .md
       ],
-
+      vueTemplate: true,
       // global imports to register
       imports: [
         // presets
@@ -64,7 +64,7 @@ export default defineConfig({
     Components({
       directoryAsNamespace: true,
       collapseSamePrefixes: true,
-      include: [/\.vue$/, /\.md$/]
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/]
     }),
     Layouts({
       layoutsDirs: 'src/layouts',
@@ -99,5 +99,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  preview: {
+    open: true
   }
 })

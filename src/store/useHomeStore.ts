@@ -25,6 +25,7 @@ export const useHomeStore = defineStore('home', {
   actions: {
     async fetchData() {
       const res = await getHomeData()
+      // console.log('🚀 ~ file: useHomeStore.ts:28 ~ fetchData ~ res:', res)
       // debugger
       if (res.status === 200) {
         const { data } = res.data

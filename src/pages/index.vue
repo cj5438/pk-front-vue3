@@ -160,16 +160,17 @@
         </div>
       </div>
     </Container>
+    <!-- <ReloadPrompt></ReloadPrompt> -->
   </div>
 </template>
 
 <script setup lang="ts">
-import type { SwiperItemType } from '@/components/types'
+// import type { SwiperItemType } from '@/components/types'
 import { registerSW } from 'virtual:pwa-register'
 import { useThemeStore } from '../store/useThemeStore'
 import { useHomeStore } from '../store/useHomeStore'
 
-import type Swiper from 'swiper'
+import type { Swiper as SwiperType } from 'swiper'
 
 const store = useThemeStore()
 const homeStore = useHomeStore()
@@ -189,7 +190,7 @@ const partners = ref([
 onBeforeMount(async () => {
   await homeStore.fetchData()
   selectItem.value = homeStore.swipers[0]
-  console.log('🚀 ~ file: index.vue:192 ~ onBeforeMount ~ homeStore.swipers:', homeStore.swipers)
+  // console.log('🚀 ~ file: index.vue:192 ~ onBeforeMount ~ homeStore.swipers:', homeStore.swipers)
 })
 
 onMounted(() => {
@@ -198,12 +199,12 @@ onMounted(() => {
     onRegisteredSW(_url, registration) {
       setInterval(() => {
         registration && registration.update()
-      }, 3600000)
+      }, 3600 * 1000)
     }
   })
 })
 
-function handleSwiperChange(e: Swiper) {
+function handleSwiperChange(e: SwiperType) {
   const index = e.activeIndex
   selectItem.value = homeStore.swipers[index]
 }

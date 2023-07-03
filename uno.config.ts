@@ -20,9 +20,13 @@ export default defineConfig({
     presetWind(),
     presetIcons({
       prefix: 'i-',
+      // collections: {
+      //   mdi: () => import('@iconify/json/json/mdi.json').then((i) => i.default)
+      // },
       extraProperties: {
         display: 'inline-block'
-      }
+      },
+      autoInstall: true
     })
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],

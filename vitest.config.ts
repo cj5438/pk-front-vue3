@@ -8,6 +8,7 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
+      globals: true,
       reporters: ['default', 'html'],
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'cypress/*'],
