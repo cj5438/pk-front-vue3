@@ -3,4 +3,4 @@
 
 # echo 'hello-world'
 # 添加测试，eslint，编译，打包，部署
-sh $(dirname -- "$0")/deploy.sh
+# sh $(dirname -- "$0")/deploy.sh
