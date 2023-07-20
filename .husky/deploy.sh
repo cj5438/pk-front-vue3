@@ -3,4 +3,4 @@
 npm run build
 
 # 上传部署
-rsync -avz --delete -e "ssh -p 22" ./dist/ root@192.168.31.77:/home/website/pk-front-vue3
+rsync -avz --delete -e "ssh -p 22" ./dist/ root@ubuntu:/home/website/pk-front-vue3
